@@ -1,0 +1,89 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0 20px;
+    background-color: #f4f4f4;
+}
+header {
+    background-color: #f3f2dc;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+header img {
+    max-width: 400px;
+    height: auto;
+    margin-right: 20px;
+}
+header h1 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+    flex: 1;
+}
+nav {
+    margin: 20px 0;
+    text-align: center;
+}
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+nav a:hover {
+    color: #8a862f;
+}
+main {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+footer {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 0.9em;
+    color: #a89999;
+}
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    header img {
+        max-width: 200px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    header h1 {
+        text-align: center;
+        font-size: 1em;
+    }
+}
+
+h3 {
+    color: #8a862f;
+    font-weight: bold;
+}
+
+.highlight {
+    color: #8a862f;
+}
+
+.custom-h3 {
+    font-size: 1.17em; /* same as h3 */
+    color: #333;
+    font-weight: bold;
+}
+
+.h3-line {
+    width: 300px; /* Adjust this value to match the biggest width of the h3 titles */
+    border: 0;
+    border-top: 1px solid #8a862f;
+    margin: 10px 0;
+}
