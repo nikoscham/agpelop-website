@@ -66,6 +66,11 @@ footer {
     }
 }
 
+h2 {
+    color: #8a862f;
+    font-weight: bold;
+}
+
 h3 {
     color: #8a862f;
     font-weight: bold;
@@ -81,8 +86,52 @@ h3 {
     font-weight: bold;
 }
 
-.h3-line {
-    border: 0;
-    border-top: 1px solid #8a862f;
-    margin: 10px 0;
+.bridge-selector {
+    margin: 20px 0;
+}
+
+.bridge-selector label {
+    display: block;
+    margin-bottom: 8px;
+    color: #8a862f;
+    font-weight: bold;
+}
+
+.bridge-selector select {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.bridge-selector select optgroup {
+    font-weight: bold;
+    color: #8a862f;
+    font-style: normal;
+}
+
+.bridge-selector select option {
+    font-weight: normal;
+    padding-left: 15px;
+    color: #333;
+}
+
+.bridge-details {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (min-width: 600px) {
+    .bridge-selector select {
+        width: 400px;
+    }
 }

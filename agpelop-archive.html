@@ -26,20 +26,25 @@
     </nav>
     <main>
       <section id="archive">
-        <h3>Αρχείο Γεφυριών</h3>
-        <hr class="h3-line" style="width: 155px" />
-        <p>
-          Εδώ θα βρείτε το πλήρες αρχείο των πέτρινων γεφυριών της Πελοποννήσου. Το αρχείο θα
-          περιλαμβάνει:
-        </p>
-        <ul>
-          <li>Φωτογραφικό υλικό</li>
-          <li>Ιστορικά στοιχεία</li>
-          <li>Τεχνικές πληροφορίες</li>
-          <li>Τοπoθεσία και οδηγίες πρόσβασης</li>
-          <li>Κατάσταση διατήρησης</li>
-          <li>Ιστορίες και παραδόσεις</li>
-        </ul>
+        <h2>Αρχείο Γεφυριών</h2>
+        <p>Εδώ θα βρείτε το πλήρες αρχείο των πέτρινων γεφυριών της Πελοποννήσου</p>
+        <div class="bridge-selector">
+          <label for="bridge-select">Επιλέξτε Γεφύρι:</label>
+          <select id="bridge-select">
+            <option value="">-- Επιλέξτε --</option>
+            <optgroup label="Αρκαδία">
+              <option value="gefyri-1">Γεφύρι της Καρύταινας</option>
+            </optgroup>
+            <optgroup label="Μεσσηνία">
+              <option value="gefyri-2">Γεφύρι της Μαυροζούμενας</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div id="bridge-details" class="bridge-details hidden">
+          <!-- Bridge details will be populated by JavaScript -->
+        </div>
+
         <p class="custom-h3">Η σελίδα είναι υπό κατασκευή. Παρακαλούμε επισκεφθείτε μας ξανά σύντομα.</p>
       </section>
     </main>
@@ -56,5 +61,6 @@
     <script>
       document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
+    <script src="agpelop-archive.js"></script>
   </body>
 </html>
