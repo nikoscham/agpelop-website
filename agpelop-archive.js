@@ -2,6 +2,7 @@ const bridgeData = {
     'gefyri-1': {
         name: 'Γεφύρι της Καρύταινας',
         county: 'Αρκαδία',
+        county2: 'Αρκαδίας',
         municipal: '-',
         location: '-',
         river: 'Αλφειός',
@@ -13,6 +14,7 @@ const bridgeData = {
     'gefyri-2': {
         name: 'Γεφύρι της Μαυροζούμενας',
         county: 'Μεσσηνία',
+        county2: 'Μεσσηνίας',
         municipal: '-',
         location: '-',
         river: '-',
@@ -34,6 +36,7 @@ document.getElementById('bridge-select').addEventListener('change', function(e) 
     const bridge = bridgeData[e.target.value];
     detailsDiv.innerHTML = `
         <h4>${bridge.name}</h4>
+        <p><strong><i class="fas fa-map-marker-alt"></i> Νομός:</strong> ${bridge.county2}</p>
         <p><strong><i class="fas fa-map-marker-alt"></i> Δήμος:</strong> ${bridge.municipal}</p>
         <p><strong><i class="fas fa-map-marker-alt"></i> Θέση:</strong> ${bridge.location}</p>
         <p><strong><i class="fas fa-water"></i> Ποτάμι:</strong> ${bridge.river}</p>
