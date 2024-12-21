@@ -4,8 +4,8 @@ const bridgeData = {
         county: 'Αρκαδία',
         county2: 'Αρκαδίας',
         municipal: '-',
-        location: '-',
         river: 'Αλφειός',
+        location: '-',
         year: '1441',
         builder: '-',
         description: 'Αποτελείται από πέντε άνισα τόξα με ορθογώνια ανακουφιστικά ανοίγματα, τρία επάλληλα καταστρώματα, έχει ύψος 12 μέτρα, μήκος 50 και το μεγαλύτερο τόξο έχει άνοιγμα 8,75 μέτρα.',
@@ -16,8 +16,8 @@ const bridgeData = {
         county: 'Μεσσηνία',
         county2: 'Μεσσηνίας',
         municipal: '-',
-        location: '-',
         river: '-',
+        location: '-',
         year: '-',
         builder: '-',
         description: '-',
@@ -38,8 +38,8 @@ document.getElementById('bridge-select').addEventListener('change', function(e) 
         <h4>${bridge.name}</h4>
         <p><strong><i class="fas fa-map-marker-alt"></i> Νομός:</strong> ${bridge.county2}</p>
         <p><strong><i class="fas fa-map-marker-alt"></i> Δήμος:</strong> ${bridge.municipal}</p>
-        <p><strong><i class="fas fa-map-marker-alt"></i> Θέση:</strong> ${bridge.location}</p>
         <p><strong><i class="fas fa-water"></i> Ποτάμι:</strong> ${bridge.river}</p>
+        <p><strong><i class="fas fa-map-marker-alt"></i> Θέση:</strong> ${bridge.location}</p>
         <p><strong><i class="fas fa-calendar-alt"></i> Έτος Κατασκευής:</strong> ${bridge.year}</p>
         <p><strong><i class="fas fa-user"></i> Πρωτομάστορας:</strong> ${bridge.builder}</p>
         <p><strong><i class="fas fa-info-circle"></i> Περιγραφή:</strong> ${bridge.description}</p>
