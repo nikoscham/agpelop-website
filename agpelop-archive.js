@@ -1,9 +1,10 @@
 const bridgeData = {
     'gefyri-1': {
         name: 'Γεφύρι της Καρύταινας',
-        location: 'Καρύταινα, Αρκαδία',
-        river: 'Αλφειός',
         county: 'Αρκαδία',
+        municipal: '-',
+        location: '-',
+        river: 'Αλφειός',
         year: '1441',
         builder: '-',
         description: 'Αποτελείται από πέντε άνισα τόξα με ορθογώνια ανακουφιστικά ανοίγματα, τρία επάλληλα καταστρώματα, έχει ύψος 12 μέτρα, μήκος 50 και το μεγαλύτερο τόξο έχει άνοιγμα 8,75 μέτρα.',
@@ -11,9 +12,10 @@ const bridgeData = {
     },
     'gefyri-2': {
         name: 'Γεφύρι της Μαυροζούμενας',
-        location: 'Νεοχώρι, Μεσσηνία',
-        river: '-',
         county: 'Μεσσηνία',
+        municipal: '-',
+        location: '-',
+        river: '-',
         year: '-',
         builder: '-',
         description: '-',
@@ -32,6 +34,7 @@ document.getElementById('bridge-select').addEventListener('change', function(e) 
     const bridge = bridgeData[e.target.value];
     detailsDiv.innerHTML = `
         <h4>${bridge.name}</h4>
+        <p><strong><i class="fas fa-map-marker-alt"></i> Δήμος:</strong> ${bridge.municipal}</p>
         <p><strong><i class="fas fa-map-marker-alt"></i> Θέση:</strong> ${bridge.location}</p>
         <p><strong><i class="fas fa-water"></i> Ποτάμι:</strong> ${bridge.river}</p>
         <p><strong><i class="fas fa-calendar-alt"></i> Έτος Κατασκευής:</strong> ${bridge.year}</p>
