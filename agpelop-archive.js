@@ -28,7 +28,7 @@ const bridgeData = {
       'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="http://agpelop.blogspot.com/2021/10/blog-post.html" target="_blank">Το τρικέφαλο γεφύρι της Μαυροζούμενας</a>',
   },
   "gefyri-3": {
-    name: "Τουρκογέφυρο στην Πρόσυμνα Αργολίδας",
+    name: "Τουρκογέφυρο στην Πρόσυμνα",
     county: "Αργολίδας",
     municipal: "Άργους-Μυκηνών",
     river: "Ρέμα Ταξιάρχη",
@@ -91,14 +91,14 @@ const bridgeData = {
     location: "Κούναδη",
     year: "1951",
     builder: "Νίκος Παπαγιαννόπουλος",
-    status: "-",
+    status: "Χρειάζεται συντήρηση και επισκευή",
     description:
       "Είναι μονότοξο και χτισμένο για την εξυπηρέτηση των αγροτικών εργασιών των ντόπιων επί του κυρίως Σελινούντα, το 1951 σε αντικατάσταση παλιού ξύλινου, από χαρακτηριστική κόκκινη πέτρα της περιοχής. Βρίσκεται κοντά στον παλιό μύλο του Λιάσκου, στη θέση “Κούναδη” και χτίστηκε από τον ντόπιο - με καταγωγή όμως από την Ήπειρο πρωτομάστορα - Νίκο Παπαγιαννόπουλο, ενώ το καλούπι έφτιαξε ο Νίκος Αβράμης από την Άνω Βλασία.",
     links:
       'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="http://agpelop.blogspot.com/2013/04/blog-post_6693.html?spref=bl" target="_blank">Το γεφύρι του Λιάσκου στην Άνω Βλασία Καλαβρύτων</a>',
   },
   "gefyri-8": {
-    name: "Μεγάλο Πετραλέϊκο γεφύρι ή γεφύρι στο μύλo Koυτσόπουλου στη Δίβρη Ηλείας",
+    name: "Μεγάλο Πετραλέϊκο γεφύρι ή γεφύρι στο μύλo Koυτσόπουλου στη Δίβρη",
     county: "Ηλείας",
     municipal: "Αρχαίας Ολυμπίας",
     river: "Διβριώτικο ρέμα",
@@ -126,7 +126,7 @@ const bridgeData = {
       'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="http://agpelop.blogspot.com/2017/09/blog-post.html?spref=bl" target="_blank">Γεφύρι στο “Πετρωτό”</a>',
   },
   "gefyri-10": {
-    name: "Γεφύρι στο Σουλινάρη Κορινθίας",
+    name: "Γεφύρι στο Σουλινάρη",
     county: "Κορινθίας",
     municipal: "Βέλου-Βόχας",
     river: "Ζαπάντη",
@@ -154,14 +154,14 @@ const bridgeData = {
       'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="https://agpelop.blogspot.com/2019/06/blog-post.html?spref=bl" target="_blank">Υδατογέφυρο στον Άσσο Κορίνθου</a>',
   },
   "gefyri-12": {
-    name: "Γεφύρι του Κόπανου στον Ευρώτα",
+    name: "Γεφύρι του Κόπανου",
     county: "Λακωνίας",
     municipal: "Σπάρτης",
     river: "Ευρώτας",
     location: "Κοντά στο χωριό Καραβάς",
     year: "1749",
     builder: "Ιωάννης Κόπανος",
-    status: "-",
+    status: "Γκρεμισμένο",
     description:
       "Λέγεται και γεφύρι του Ίρη. Χτίστηκε το 1749 (κατ' αλλους το 1730, Loring, Pritchett ή και ακόμη πιο πριν αν λάβουμε υπόψη τη μαρτυρία του Marin Michiel, που τελείωσε την περιήγησή του το 1691 και αναφέρεται στο γεφύρι), επί τουρκοκρατίας. Λέγεται και επίσης γεφύρι “του Κοπανίτσα”. Είχε ένα κεντρικό μεγάλο τόξο και δύο πλευρικά ημικυκλικά ανακουφιστικά ανοίγματα, με το μικρότερο στο δυτικό βάθρο, αριστερά από κατάντη και το μεγαλύτερο στο ανατολικό (το μόνο μέρος του γεφυριού που σώζεται, δεξιά από κατάντη) που δεν άνοιγαν ως την κοίτη, καθώς επίσης και δύο μικρά ανοίγματα ψηλότερα εκατέρωθεν της κεντρικής καμάρας.",
     links:
@@ -182,7 +182,7 @@ const bridgeData = {
       'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="http://agpelop.blogspot.com/2014/02/blog-post_4871.html?spref=bl" target="_blank">Γεφύρι Στάρας</a>',
   },
   "gefyri-14": {
-    name: "Γεφύρι Αγίου Πολυκάρπου στον Νέδοντα, Αλαγωνία Καλαμάτας",
+    name: "Γεφύρι Αγίου Πολυκάρπου στην Αλαγωνία Καλαμάτας",
     county: "Μεσσηνίας",
     municipal: "Καλαμάτας",
     river: "Νέδων",
@@ -196,7 +196,7 @@ const bridgeData = {
       'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="http://agpelop.blogspot.com/2023/05/blog-post_10.html" target="_blank">Γεφύρι Αγίου Πολυκάρπου στον Νέδοντα. Αλαγωνία Καλαμάτας.</a>',
   },
   "gefyri-15": {
-    name: "Γεφύρι Μανούσου στη Χώρα Μεσσηνίας",
+    name: "Γεφύρι Μανούσου στη Χώρα",
     county: "Μεσσηνίας",
     municipal: "Πύλου-Νέστορος",
     river: "Σελάς",
@@ -209,6 +209,34 @@ const bridgeData = {
     links:
       'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="http://agpelop.blogspot.com/2022/06/1944.html" target="_blank">Γεφύρι Μανούσου και η μάχη της Αγορελίτσας (Ιούλιος 1944). Χώρα Μεσσηνίας.</a>',
   },
+  "gefyri-16": {
+    name: "Μυκηναϊκή γέφυρα Λυκοτρούπι",
+    county: "Αργολίδας",
+    municipal: "Άργους-Μυκηνών",
+    river: "Ρέμα που χύνεται στον Αστερίωνα",
+    location: "Πάνω στο Μυκηναϊκό δρόμο Μ.Δ.1",
+    year: "1300 π.X. περίπου",
+    builder: "Άγνωστος",
+    status: "Καλή",
+    description:
+      "Βρίσκεται πάνω στο Μυκηναϊκό δρόμο Μ.Δ.1, μέρος του οποίου αποτελεί. Είναι χτισμένο με τον εκφορικό σύστημα της εποχής και κυκλώπεια τεχνοτροπία με τη χρήση τεραστίων λίθων μεγέθους 1χ1 μέτρα. Οχτώ τεράστιοι ογκόλιθοι σχηματίζουν την καμάρα και είναι έτσι τοποθετημένοι, που να δημιουργούν ένα άνοιγμα τριγωνικού σχήματος, οξυκόρυφου για τη μείωση της έντασης της ροής του νερού και την ανθεκτικότητά του στους σεισμούς.",
+    links:
+      'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="http://agpelop.blogspot.com/2019/08/blog-post.html" target="_blank">Μυκηναϊκή γέφυρα Λυκοτρούπι</a>',
+  },
+  "gefyri-17": {
+    name: "Τρίτοξο γεφύρι στην Πρόσυμνα",
+    county: "Αργολίδας",
+    municipal: "Άργους-Μυκηνών",
+    river: "Ρέμα Ταξιάρχη",
+    location: "Ένα χιλιόμετρο πριν την είσοδο στο χωριό Πρόσυμνα",
+    year: "Πιθανότατα τέλος 19ου αρχές 20ου αιώνα",
+    builder: "Άγνωστος",
+    status: "Καλή",
+    description:
+      "Πρόκειται για ένα τρίτοξο, πανέμορφο και καλοδιατηρημένο  γεφύρι που βρίσκεται κοντά στο χωριό Πρόσυμνα ή Προσύμνη (τ.Μπερμπάτι), ένα χιλιόμετρο πριν από την νότια είσοδο του χωριού, που ανήκει στο δήμο Άργους – Μυκηνών του νομού Αργολίδας. Το γεφύρι βρίσκεται σε καλή κατάσταση, είχε στηθαίο, ίχνη του οποίου διακρίνονται καθαρά και το οποίο έχει αντικατασταθεί σε πολλά σημεία από τσιμέντο, καταβιβασμένα τόξα για να πετύχουν όσο το δυνατόν επίπεδο κατάστρωμα και μονή σειρά από μεγάλα καμαρολίθια (θολίτες), που πατάνε σε στρογγυλεμένες κάθετες μέχρι περίπου ενός μέτρου βάσεις, που λόγω της κατασκευής τους, λειτουργούν και σαν πρόβολοι για την μείωση της έντασης του νερού σε περιόδους μεγάλων κατεβασμάτων.",
+    links:
+      'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="http://agpelop.blogspot.com/2014/03/blog-post_16.html?spref=bl" target="_blank">Τρίτοξο γεφύρι στην Πρόσυμνα</a>',
+  },
 };
 
 const countySelect = document.getElementById("county-select");
@@ -217,7 +245,7 @@ const bridgeSelect = document.getElementById("bridge-select");
 
 countySelect.addEventListener("change", function (e) {
   const selectedCounty = e.target.value;
-  riverSelect.innerHTML = '<option value="">-- Επιλέξτε --</option>';
+  riverSelect.innerHTML = '<option value="">-- Επιλέξτε --</option><option value="all">Όλα τα ποτάμια</option>';
   bridgeSelect.innerHTML = '<option value="">-- Επιλέξτε --</option>';
   bridgeSelect.disabled = true;
 
@@ -246,7 +274,12 @@ riverSelect.addEventListener("change", function (e) {
     return;
   }
 
-  const bridges = Object.entries(bridgeData).filter(([key, bridge]) => bridge.river === selectedRiver);
+  const bridges = selectedRiver === "all"
+    ? Object.entries(bridgeData).filter(([key, bridge]) => bridge.county === countySelect.value)
+    : Object.entries(bridgeData).filter(([key, bridge]) => bridge.river === selectedRiver && bridge.county === countySelect.value);
+
+  bridges.sort((a, b) => a[1].name.localeCompare(b[1].name, 'el'));
+
   bridges.forEach(([key, bridge]) => {
     const option = document.createElement("option");
     option.value = key;
@@ -266,6 +299,15 @@ bridgeSelect.addEventListener("change", function (e) {
   }
 
   const bridge = bridgeData[e.target.value];
+  let statusColor = "";
+  let statusFontWeight = "normal";
+  if (bridge.status === "Καλή") {
+    statusColor = "green";
+  } else if (bridge.status === "Χρειάζεται συντήρηση και επισκευή" || bridge.status === "Γκρεμισμένο") {
+    statusColor = "red";
+    statusFontWeight = "bold";
+  }
+
   detailsDiv.innerHTML = `
         <h4>${bridge.name}</h4>
         <p><strong><i class="fas fa-map-marker-alt"></i> Νομός:</strong> ${bridge.county}</p>
@@ -274,7 +316,7 @@ bridgeSelect.addEventListener("change", function (e) {
         <p><strong><i class="fas fa-map-marker-alt"></i> Θέση:</strong> ${bridge.location}</p>
         <p><strong><i class="fas fa-calendar-alt"></i> Έτος Κατασκευής:</strong> ${bridge.year}</p>
         <p><strong><i class="fas fa-user"></i> Πρωτομάστορας:</strong> ${bridge.builder}</p>
-        <p><strong><i class="fas fa-flag"></i> Κατάσταση:</strong> ${bridge.status}</p>
+        <p><strong><i class="fas fa-flag"></i> Κατάσταση:</strong> <span style="color: ${statusColor}; font-weight: ${statusFontWeight};">${bridge.status}</span></p>
         <p><strong><i class="fas fa-info-circle"></i> Περιγραφή:</strong> ${bridge.description}</p>
         <p><strong><i class="fas fa-link"></i> Σύνδεσμοι:</strong> ${bridge.links}</p>
     `;
