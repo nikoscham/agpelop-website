@@ -170,7 +170,53 @@ const bridgeData = {
   },
 };
 
-document.getElementById("bridge-select").addEventListener("change", function (e) {
+const countySelect = document.getElementById("county-select");
+const riverSelect = document.getElementById("river-select");
+const bridgeSelect = document.getElementById("bridge-select");
+
+countySelect.addEventListener("change", function (e) {
+  const selectedCounty = e.target.value;
+  riverSelect.innerHTML = '<option value="">-- Επιλέξτε --</option>';
+  bridgeSelect.innerHTML = '<option value="">-- Επιλέξτε --</option>';
+  bridgeSelect.disabled = true;
+
+  if (!selectedCounty) {
+    riverSelect.disabled = true;
+    return;
+  }
+
+  const rivers = [...new Set(Object.values(bridgeData).filter(bridge => bridge.county === selectedCounty).map(bridge => bridge.river))];
+  rivers.forEach(river => {
+    const option = document.createElement("option");
+    option.value = river;
+    option.textContent = river;
+    riverSelect.appendChild(option);
+  });
+
+  riverSelect.disabled = false;
+});
+
+riverSelect.addEventListener("change", function (e) {
+  const selectedRiver = e.target.value;
+  bridgeSelect.innerHTML = '<option value="">-- Επιλέξτε --</option>';
+
+  if (!selectedRiver) {
+    bridgeSelect.disabled = true;
+    return;
+  }
+
+  const bridges = Object.entries(bridgeData).filter(([key, bridge]) => bridge.river === selectedRiver);
+  bridges.forEach(([key, bridge]) => {
+    const option = document.createElement("option");
+    option.value = key;
+    option.textContent = bridge.name;
+    bridgeSelect.appendChild(option);
+  });
+
+  bridgeSelect.disabled = false;
+});
+
+bridgeSelect.addEventListener("change", function (e) {
   console.log("Selection changed:", e.target.value);
   const detailsDiv = document.getElementById("bridge-details");
   if (!e.target.value) {
@@ -196,5 +242,7 @@ document.getElementById("bridge-select").addEventListener("change", function (e)
 document.addEventListener("DOMContentLoaded", function () {
   const detailsDiv = document.getElementById("bridge-details");
   detailsDiv.classList.add("hidden");
-  document.getElementById("bridge-select").value = "";
+  countySelect.value = "";
+  riverSelect.disabled = true;
+  bridgeSelect.disabled = true;
 });
