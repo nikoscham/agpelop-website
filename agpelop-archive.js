@@ -430,6 +430,9 @@ bridgeSelect.addEventListener("change", function (e) {
   } else if (bridge.status === "Χρειάζεται συντήρηση") {
     statusColor = "orange";
     statusFontWeight = "bold";
+  } else if (bridge.status === "Προσθήκες τσιμέντου") {
+    statusColor = "orange";
+    statusFontWeight = "bold";
   } else if (bridge.status === "Γκρεμισμένο") {
     statusColor = "black";
     statusFontWeight = "bold";
