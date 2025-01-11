@@ -349,6 +349,48 @@ const bridgeData = {
     links:
       'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="https://agpelop.blogspot.com/2019/05/blog-post.html?spref=bl" target="_blank">Γεφύρι Σερά-Σέρβου</a>',
   },
+  "gefyri-26": {
+    name: "Γεφύρι Βρυσούλας",
+    county: "Αρκαδίας",
+    municipal: "Γορτυνίας",
+    river: "Χείμαρρος που χύνεται στο ρέμα “Βολιμοίρη”",
+    location: "Στην είσοδο από το χωριό Βούτση",
+    year: "Άγνωστο",
+    builder: "Άγνωστος",
+    status: "Καλυμμένο με τσιμέντο και άσφαλτο",
+    description:
+      "Πρόκειται για ένα  μονότοξο γεφύρι καλυμμένο με τσιμέντο και άσφαλτο που αποτελεί κομμάτι του δημοσίου δρόμου Βούτση – Μοναστηράκι. Γεφυρώνει έναν  χείμαρρο που χύνεται στο ρέμα “Βολιμοίρη”, από εκεί στο ποτάμι Άρση ή Πατσουριά και κατόπιν στο Λάδωνα. Συνέδεε το κεφαλοχώρι Κοντοβάζαινα με τα χωριά Βούτση, Μοναστηράκι και Βιδιάκι.",
+    links:
+      'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="https://agpelop.blogspot.com/2014/04/blog-post_27.html" target="_blank">Τρία γεφύρια στο Μοναστηράκι Γορτυνίας</a>',
+  },
+  "gefyri-27": {
+    name: "Γεφύρι της Κρεμμυδούς",
+    county: "Αρκαδίας",
+    municipal: "Γορτυνίας",
+    river: "Άρσης",
+    location: "Κοντά στην εκκλησία του Αγίου Νικολάου",
+    year: "Άγνωστο",
+    builder: "Άγνωστος",
+    status: "Καλή",
+    description:
+      "Είναι μονότοξο και πάνω του περνά αγροτικός δρόμος για την εξυπηρέτηση των ντόπιων στις αγροτικές τους εργασίες ενώ παλιότερα διευκόλυνε τις επαφές των ντόπιων με τα κοντινά χωριά.  Στην περιοχή ευδοκιμούσε το κρεμμύδι, εξ ου και το όνομα του γεφυριού, το οποίο ήταν και συχνό πέρασμα του Κολοκοτρώνη για τον Άγιο Νικόλαο.",
+    links:
+      'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="https://agpelop.blogspot.com/2014/04/blog-post_27.html" target="_blank">Τρία γεφύρια στο Μοναστηράκι Γορτυνίας</a>',
+  },
+  "gefyri-28": {
+    name: "Γεφύρι στην Τρανή Βρύση",
+    county: "Αρκαδίας",
+    municipal: "Γορτυνίας",
+    river: "Άρσης",
+    location: "Χείμαρρος που χύνεται στο ρέμα “Βολιμοίρη”",
+    year: "Άγνωστο",
+    builder: "Άγνωστος",
+    status: "Καλυμμένο με άσφαλτο, ακαλαίσθητες επεμβάσεις",
+    description:
+      "Είναι μονότοξο,  πάνω του έχουν τοποθετηθεί σιδερένια παραπέτια και είναι σε σχετικά καλή κατάσταση αν και τα τελευταία χρόνια τα γκρεμισμένα άκρα του έχουν στερεωθεί με τσιμέντο, με την επισκευή αυτή να έχει γίνει με εντελώς ακαλαίσθητο τρόπο που δεν ταιριάζει με το επιβλητικό, άγριο και φυσικό τοπίο.",
+    links:
+      'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="https://agpelop.blogspot.com/2014/04/blog-post_27.html" target="_blank">Τρία γεφύρια στο Μοναστηράκι Γορτυνίας</a>',
+  },
 };
 
 const countySelect = document.getElementById("county-select");
@@ -433,6 +475,12 @@ bridgeSelect.addEventListener("change", function (e) {
   } else if (bridge.status === "Προσθήκες τσιμέντου") {
     statusColor = "orange";
     statusFontWeight = "bold";
+  } else if (bridge.status === "Καλυμμένο με τσιμέντο και άσφαλτο") {
+    statusColor = "orange";
+    statusFontWeight = "bold";
+  } else if (bridge.status === "Καλυμμένο με άσφαλτο, ακαλαίσθητες επεμβάσεις") {
+    statusColor = "orange";
+    statusFontWeight = "bold";
   } else if (bridge.status === "Γκρεμισμένο") {
     statusColor = "black";
     statusFontWeight = "bold";
@@ -443,7 +491,7 @@ bridgeSelect.addEventListener("change", function (e) {
     statusColor = "purple";
     statusFontWeight = "bold";
   }
-
+  
   detailsDiv.innerHTML = `
         <div style="display: flex; align-items: center; gap: 10px;">
           <h4 style="margin: 0;">${bridge.name}</h4>
