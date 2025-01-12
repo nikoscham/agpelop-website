@@ -361,7 +361,7 @@ const bridgeData = {
     description:
       "Πρόκειται για ένα  μονότοξο γεφύρι καλυμμένο με τσιμέντο και άσφαλτο που αποτελεί κομμάτι του δημοσίου δρόμου Βούτση – Μοναστηράκι. Γεφυρώνει έναν  χείμαρρο που χύνεται στο ρέμα “Βολιμοίρη”, από εκεί στο ποτάμι Άρση ή Πατσουριά και κατόπιν στο Λάδωνα. Συνέδεε το κεφαλοχώρι Κοντοβάζαινα με τα χωριά Βούτση, Μοναστηράκι και Βιδιάκι.",
     links:
-      'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="https://agpelop.blogspot.com/2014/04/blog-post_27.html" target="_blank">Τρία γεφύρια στο Μοναστηράκι Γορτυνίας</a>',
+      'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="https://agpelop.blogspot.com/2014/04/blog-post_27.html?spref=bl" target="_blank">Τρία γεφύρια στο Μοναστηράκι Γορτυνίας</a>',
   },
   "gefyri-27": {
     name: "Γεφύρι της Κρεμμυδούς",
@@ -375,7 +375,7 @@ const bridgeData = {
     description:
       "Είναι μονότοξο και πάνω του περνά αγροτικός δρόμος για την εξυπηρέτηση των ντόπιων στις αγροτικές τους εργασίες ενώ παλιότερα διευκόλυνε τις επαφές των ντόπιων με τα κοντινά χωριά.  Στην περιοχή ευδοκιμούσε το κρεμμύδι, εξ ου και το όνομα του γεφυριού, το οποίο ήταν και συχνό πέρασμα του Κολοκοτρώνη για τον Άγιο Νικόλαο.",
     links:
-      'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="https://agpelop.blogspot.com/2014/04/blog-post_27.html" target="_blank">Τρία γεφύρια στο Μοναστηράκι Γορτυνίας</a>',
+      'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="https://agpelop.blogspot.com/2014/04/blog-post_27.html?spref=bl" target="_blank">Τρία γεφύρια στο Μοναστηράκι Γορτυνίας</a>',
   },
   "gefyri-28": {
     name: "Γεφύρι στην Τρανή Βρύση",
@@ -389,7 +389,7 @@ const bridgeData = {
     description:
       "Είναι μονότοξο,  πάνω του έχουν τοποθετηθεί σιδερένια παραπέτια και είναι σε σχετικά καλή κατάσταση αν και τα τελευταία χρόνια τα γκρεμισμένα άκρα του έχουν στερεωθεί με τσιμέντο, με την επισκευή αυτή να έχει γίνει με εντελώς ακαλαίσθητο τρόπο που δεν ταιριάζει με το επιβλητικό, άγριο και φυσικό τοπίο.",
     links:
-      'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="https://agpelop.blogspot.com/2014/04/blog-post_27.html" target="_blank">Τρία γεφύρια στο Μοναστηράκι Γορτυνίας</a>',
+      'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="https://agpelop.blogspot.com/2014/04/blog-post_27.html?spref=bl" target="_blank">Τρία γεφύρια στο Μοναστηράκι Γορτυνίας</a>',
   },
   "gefyri-29": {
     name: "Γεφύρι στη θέση “Κέτανη”",
@@ -541,6 +541,9 @@ bridgeSelect.addEventListener("change", function (e) {
 document.addEventListener("DOMContentLoaded", function () {
   const detailsDiv = document.getElementById("bridge-details");
   const searchInput = document.getElementById("bridge-search");
+  
+  // Clear search input on page load
+  searchInput.value = '';
   
   detailsDiv.classList.add("hidden");
   countySelect.value = "";
