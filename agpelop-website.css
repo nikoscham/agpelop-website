@@ -118,6 +118,20 @@ h3 {
     color: #333;
 }
 
+.bridge-selector input {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.bridge-selector input::placeholder {
+    color: #999;
+}
+
 .bridge-details {
     margin-top: 20px;
     padding: 20px;
@@ -139,4 +153,19 @@ h3 {
 .note {
     font-size: 0.9em;
     color: #555;
+}
+
+.search-instructions {
+    color: #666;
+    margin: 10px 0;
+    max-width: 400px;
+}
+
+.search-instructions ul {
+    margin: 5px 0 0 20px;
+    padding: 0;
+}
+
+.search-instructions li {
+    margin-bottom: 5px;
 }

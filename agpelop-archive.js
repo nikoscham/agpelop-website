@@ -540,8 +540,51 @@ bridgeSelect.addEventListener("change", function (e) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const detailsDiv = document.getElementById("bridge-details");
+  const searchInput = document.getElementById("bridge-search");
+  
   detailsDiv.classList.add("hidden");
   countySelect.value = "";
   riverSelect.disabled = true;
   bridgeSelect.disabled = true;
+
+  searchInput.addEventListener("input", function(e) {
+    const searchTerm = e.target.value.toLowerCase();
+    
+    if (searchTerm.length < 2) {
+      // Reset the selectors if search is cleared
+      countySelect.value = "";
+      riverSelect.innerHTML = '<option value="">-- Επιλέξτε --</option>';
+      bridgeSelect.innerHTML = '<option value="">-- Επιλέξτε --</option>';
+      riverSelect.disabled = true;
+      bridgeSelect.disabled = true;
+      detailsDiv.classList.add("hidden");
+      return;
+    }
+
+    // Filter bridges based on search term (only name and description)
+    const matchingBridges = Object.entries(bridgeData).filter(([key, bridge]) => {
+      return bridge.name.toLowerCase().includes(searchTerm) ||
+             bridge.description.toLowerCase().includes(searchTerm);
+    });
+
+    // Update the bridge select with matching results
+    bridgeSelect.innerHTML = '<option value="">-- Επιλέξτε --</option>';
+    matchingBridges.sort((a, b) => a[1].name.localeCompare(b[1].name, "el"));
+    
+    matchingBridges.forEach(([key, bridge]) => {
+      const option = document.createElement("option");
+      option.value = key;
+      option.textContent = `${bridge.name} (${bridge.county})`;
+      bridgeSelect.appendChild(option);
+    });
+
+    // Enable bridge select if we have results
+    bridgeSelect.disabled = matchingBridges.length === 0;
+    
+    // Auto-select if only one result
+    if (matchingBridges.length === 1) {
+      bridgeSelect.value = matchingBridges[0][0];
+      bridgeSelect.dispatchEvent(new Event('change'));
+    }
+  });
 });
