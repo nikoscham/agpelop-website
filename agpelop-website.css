@@ -151,21 +151,38 @@ h3 {
 }
 
 .note {
-    font-size: 0.9em;
+    font-size: 0.8em;  /* Reduced from 0.9em */
     color: #555;
+}
+
+.note li {
+    margin-bottom: 3px;  /* Add some spacing between list items */
 }
 
 .search-instructions {
     color: #666;
     margin: 10px 0;
-    max-width: 400px;
+    max-width: 600px;
 }
 
 .search-instructions ul {
+    font-size: 0.9em;
     margin: 5px 0 0 20px;
     padding: 0;
 }
 
 .search-instructions li {
+    font-size: 0.9em;
     margin-bottom: 5px;
+}
+
+.search-instructions .alt-list {
+    list-style: none;
+    padding-left: 20px;
+    margin-left: 0;
+}
+
+.search-instructions .alt-list li {
+    margin-left: 0;
+    margin-bottom: 3px;
 }
