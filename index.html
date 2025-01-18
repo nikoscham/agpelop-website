@@ -5,9 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Αρχείο Γεφυριών Πελοποννήσου</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="agpelop-website.css" />
   </head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G36BTQH4HQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-G36BTQH4HQ");
+  </script>
+
   <body>
     <header>
       <img src="assets/agpelop-logo.png" alt="Αρχείο Γεφυριών Πελοποννήσου Logo" />
@@ -79,11 +95,13 @@
       <div>
         <a href="https://www.youtube.com/agpelop" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="http://agpelop.blogspot.com/" target="_blank"><i class="fab fa-blogger"></i></a>
-        <a href="https://www.facebook.com/thodorischamakos" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.facebook.com/thodorischamakos" target="_blank"
+          ><i class="fab fa-facebook"></i
+        ></a>
       </div>
     </footer>
     <script>
-      document.getElementById('current-year').textContent = new Date().getFullYear();
+      document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
