@@ -433,6 +433,34 @@ const bridgeData = {
     links:
       'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="http://agpelop.blogspot.com/2013/02/3.html?spref=bl" target="_blank">Γέφυρα Καζάρμας</a>',
   },
+  "gefyri-32": {
+    name: "Γεφύρι στο Λευκοχώρι (Ρεκούνι)",
+    county: "Αρκαδίας",
+    municipal: "Γορτυνίας",
+    river: "Ρέμα Κουτσομύλι",
+    location: "Λίγο πριν και κάτω από το Λευκοχώρι (Ρεκούνι)",
+    year: "Τουρκοκρατία",
+    builder: "Άγνωστος",
+    status: "Καλή",
+    description:
+      "Είναι ορατό από το δρόμο Πύργου-Τρίπολης, λίγο πριν και κάτω από το Λευκοχώρι (Ρεκούνι). Πρόκειται για ένα πανέμορφο σε μια εντυπωσιακή τοποθεσία μονότοξο, ημικυκλικό γεφύρι, με μια σειρά θολίτες, το οποίο είχε στηθαία, ίχνη των οποίων υπάρχουν και καλντεριμωτή επίπεδη επιφάνεια διάβασης. Ένωνε το Λευκοχώρι με το Φούσκαρη.  Βρίσκεται δίπλα στο Τρανό γεφύρι που είναι επί του δημοσίου δρόμου.",
+    links:
+      'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="https://agpelop.blogspot.com/2018/11/blog-post_9.html?spref=bl" target="_blank">Γεφύρι στο Λευκοχώρι (Ρεκούνι)</a>',
+  },
+  "gefyri-33": {
+    name: "Υδατογέφυρο Μονής Λουκούς",
+    county: "Αρκαδίας",
+    municipal: "Βόρειας Κυνουρίας",
+    river: "Ρέμα Καλογριάς",
+    location: "“Εύα Δολιανών”",
+    year: "Άγνωστο",
+    builder: "Άγνωστος",
+    status: "Καλή",
+    description:
+      "ιστεύεται ότι είναι ρωμαϊκή κατασκευή, όπως και όλο το υδραγωγείο που μετέφερε νερό για την εξυπηρέτηση των αναγκών της περιοχής και κυρίως τη βίλας του Ηρώδη του Αττικού, πολύ κοντά στον αρχαιολογικό χώρο της Εύας. Eίναι κατασκευασμένο στο ρέμα Καλογριάς, που 500 μέτρα πιο κάτω χύνεται στον ποταμό Τάνο  και αυτός με τη σειρά του σμίγει με τον Αργολικό κόλπο. Στην ουσία δεν είναι χτισμένο πετρογέφυρο αλλά τα δυο τόξα του λαξεύτηκαν πάνω στον συμπαγή βράχο με τέτοιο τρόπο ώστε να δίνει την αίσθηση γεφυριού. Βρίσκεται κοντά στην βυζαντινή μονή Λουκούς, στην περιοχή των Κάτω Δολιανών, δίπλα και αριστερά του καινούργιου εθνικού δρόμου Άστρους-Τρίπολης. Οι κρυσταλλικές μορφές στα πλαϊνά δημιουργήθηκαν από το νερό που έπεφτε από πάνω.",
+    links:
+      'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="http://agpelop.blogspot.com/2018/03/blog-post_76.html?spref=bl" target="_blank">Υδατογέφυρο Μονής Λουκούς. Κάτω Δολιανά - Άστρος Κυνουρίας</a>',
+  },
 };
 
 const countySelect = document.getElementById("county-select");
@@ -533,7 +561,7 @@ bridgeSelect.addEventListener("change", function (e) {
     statusColor = "purple";
     statusFontWeight = "bold";
   }
-  
+
   detailsDiv.innerHTML = `
         <div style="display: flex; align-items: center; gap: 10px;">
           <h4 style="margin: 0;">${bridge.name}</h4>
@@ -555,18 +583,18 @@ bridgeSelect.addEventListener("change", function (e) {
 document.addEventListener("DOMContentLoaded", function () {
   const detailsDiv = document.getElementById("bridge-details");
   const searchInput = document.getElementById("bridge-search");
-  
+
   // Clear search input on page load
-  searchInput.value = '';
-  
+  searchInput.value = "";
+
   detailsDiv.classList.add("hidden");
   countySelect.value = "";
   riverSelect.disabled = true;
   bridgeSelect.disabled = true;
 
-  searchInput.addEventListener("input", function(e) {
+  searchInput.addEventListener("input", function (e) {
     const searchTerm = e.target.value.toLowerCase();
-    
+
     if (searchTerm.length < 2) {
       // Reset the selectors if search is cleared
       countySelect.value = "";
@@ -580,14 +608,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Filter bridges based on search term (only name and description)
     const matchingBridges = Object.entries(bridgeData).filter(([key, bridge]) => {
-      return bridge.name.toLowerCase().includes(searchTerm) ||
-             bridge.description.toLowerCase().includes(searchTerm);
+      return (
+        bridge.name.toLowerCase().includes(searchTerm) ||
+        bridge.description.toLowerCase().includes(searchTerm)
+      );
     });
 
     // Update the bridge select with matching results
     bridgeSelect.innerHTML = '<option value="">-- Επιλέξτε --</option>';
     matchingBridges.sort((a, b) => a[1].name.localeCompare(b[1].name, "el"));
-    
+
     matchingBridges.forEach(([key, bridge]) => {
       const option = document.createElement("option");
       option.value = key;
@@ -597,11 +627,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Enable bridge select if we have results
     bridgeSelect.disabled = matchingBridges.length === 0;
-    
+
     // Auto-select if only one result
     if (matchingBridges.length === 1) {
       bridgeSelect.value = matchingBridges[0][0];
-      bridgeSelect.dispatchEvent(new Event('change'));
+      bridgeSelect.dispatchEvent(new Event("change"));
     }
   });
 });
