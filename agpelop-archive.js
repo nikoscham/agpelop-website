@@ -643,7 +643,7 @@ const bridgeData = {
     links:
       'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="http://agpelop.blogspot.com/2024/03/blog-post_11.html" target="_blank">Γεφύρι στο Χάνι Κουτρουμπή. Βυτίνα</a>',
   },
-  "gefyri-46": {
+  "gefyri-47": {
     name: "Πυργακιώτικο γεφύρι",
     county: "Αρκαδίας",
     municipal: "Γορτυνίας",
@@ -657,7 +657,7 @@ const bridgeData = {
     links:
       'Σχετικό άρθρο στο blog του Α.Γ.Π.: <a href="http://agpelop.blogspot.com/2024/04/blog-post_23.html" target="_blank">Πυργακιώτικο γεφύρι. Γορτυνία</a>',
   },
-  "gefyri-46": {
+  "gefyri-48": {
     name: "Γεφύρι Μονής Κερνίτσας στη Βυτίνα",
     county: "Αρκαδίας",
     municipal: "Γορτυνίας",
