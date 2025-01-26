@@ -704,6 +704,10 @@ document.addEventListener("DOMContentLoaded", function () {
   riverSelect.disabled = true;
   bridgeSelect.disabled = true;
 
+  // Display total number of bridges
+  const totalBridges = Object.keys(bridgeData).length;
+  document.getElementById("total-bridges").textContent = totalBridges;
+
   searchInput.addEventListener("input", function (e) {
     const searchTerm = e.target.value.toLowerCase();
 
