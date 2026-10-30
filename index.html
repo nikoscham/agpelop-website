@@ -4,7 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Αρχείο Γεφυριών Πελοποννήσου</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <meta name="description" content="Το Αρχείο Γεφυριών Πελοποννήσου (Α.Γ.Π.) του Θοδωρή Χαμάκου καταγράφει και παρουσιάζει τα πέτρινα γεφύρια της Πελοποννήσου: ιστορία, θέση, κατάσταση και φωτογραφίες." />
+    <link rel="canonical" href="https://agpelop.gr/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="el_GR" />
+    <meta property="og:site_name" content="Αρχείο Γεφυριών Πελοποννήσου" />
+    <meta property="og:title" content="Αρχείο Γεφυριών Πελοποννήσου" />
+    <meta property="og:description" content="Το Αρχείο Γεφυριών Πελοποννήσου (Α.Γ.Π.) του Θοδωρή Χαμάκου καταγράφει και παρουσιάζει τα πέτρινα γεφύρια της Πελοποννήσου: ιστορία, θέση, κατάσταση και φωτογραφίες." />
+    <meta property="og:url" content="https://agpelop.gr/" />
+    <meta property="og:image" content="https://agpelop.gr/assets/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
@@ -32,13 +47,13 @@
       </h1>
     </header>
     <nav>
-      <a href="index.html"><i class="fas fa-home"></i> Αρχική</a>
+      <a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> Αρχική</a>
       <a href="agpelop-history.html"><i class="fas fa-info-circle"></i> Σχετικά</a>
       <a href="agpelop-publications.html"><i class="fas fa-book"></i> Δημοσιεύσεις/Βιβλία</a>
       <a href="agpelop-archive.html"><i class="fas fa-archive"></i> Αρχείο</a>
       <a href="agpelop-contact.html"><i class="fas fa-envelope"></i> Επικοινωνία</a>
     </nav>
-    <main>
+    <main class="home">
       <section id="welcome">
         <h2>....της Πέτρας και του Νερού</h2>
         <p>
@@ -89,7 +104,38 @@
           <span class="custom-h3">Καλώς ήλθατε στο Αρχείο Γεφυριών Πελοποννήσου.</span><br />
         </p>
       </section>
-      <!-- Add more sections -->
+
+      <aside class="home-sidebar">
+        <section class="latest-card">
+          <h2><i class="fab fa-blogger"></i> Νέες αναρτήσεις</h2>
+          <ul id="latest-posts" class="latest-posts">
+            <li class="latest-loading">Φόρτωση αναρτήσεων...</li>
+          </ul>
+          <a class="more-link" href="https://agpelop.blogspot.com/" target="_blank"
+            >Όλες οι αναρτήσεις στο blog <i class="fas fa-arrow-right"></i
+          ></a>
+        </section>
+
+        <section class="latest-card">
+          <h2><i class="fab fa-youtube"></i> Τελευταία βίντεο</h2>
+          <!-- Replaced by the newest videos from home.js; this playlist player is the fallback -->
+          <div id="latest-videos" class="latest-videos">
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/videoseries?list=UUAnQsfZS_HRfGFmXW_oszZg"
+              title="Τελευταία βίντεο του Αρχείου Γεφυριών Πελοποννήσου στο YouTube"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          </div>
+          <a class="more-link" href="https://www.youtube.com/agpelop" target="_blank"
+            >Δείτε το κανάλι στο YouTube <i class="fas fa-arrow-right"></i
+          ></a>
+        </section>
+      </aside>
     </main>
     <footer>
       &copy; <span id="current-year"></span> Αρχείο Γεφυριών Πελοποννήσου Θοδωρής Χαμάκος
@@ -104,5 +150,11 @@
     <script>
       document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
+    <script src="home.js"></script>
+    <script
+      src="https://agpelop.blogspot.com/feeds/posts/summary?alt=json-in-script&max-results=6&callback=renderLatestPosts"
+      onerror="latestPostsFailed()"
+      async
+    ></script>
   </body>
 </html>

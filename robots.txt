@@ -1,0 +1,37 @@
+# Block AI training and scraping crawlers
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Meta-ExternalAgent
+User-agent: Meta-ExternalFetcher
+User-agent: FacebookBot
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: Diffbot
+User-agent: ImagesiftBot
+User-agent: Omgilibot
+User-agent: Omgili
+User-agent: Timpibot
+User-agent: YouBot
+User-agent: AI2Bot
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+Disallow: /
+
+# Allow all other crawlers (search engines)
+User-agent: *
+Allow: /
+
+Sitemap: https://agpelop.gr/sitemap.xml

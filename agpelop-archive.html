@@ -4,7 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Αρχείο - Αρχείο Γεφυριών Πελοποννήσου</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <meta name="description" content="Αναζητήστε πέτρινα γεφύρια της Πελοποννήσου ανά νομό, ποτάμι ή όνομα. Για κάθε γεφύρι: δήμος, θέση, έτος κατασκευής, πρωτομάστορας, κατάσταση και περιγραφή." />
+    <link rel="canonical" href="https://agpelop.gr/agpelop-archive.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="el_GR" />
+    <meta property="og:site_name" content="Αρχείο Γεφυριών Πελοποννήσου" />
+    <meta property="og:title" content="Αρχείο - Αρχείο Γεφυριών Πελοποννήσου" />
+    <meta property="og:description" content="Αναζητήστε πέτρινα γεφύρια της Πελοποννήσου ανά νομό, ποτάμι ή όνομα. Για κάθε γεφύρι: δήμος, θέση, έτος κατασκευής, πρωτομάστορας, κατάσταση και περιγραφή." />
+    <meta property="og:url" content="https://agpelop.gr/agpelop-archive.html" />
+    <meta property="og:image" content="https://agpelop.gr/assets/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
@@ -35,7 +50,7 @@
       <a href="index.html"><i class="fas fa-home"></i> Αρχική</a>
       <a href="agpelop-history.html"><i class="fas fa-info-circle"></i> Σχετικά</a>
       <a href="agpelop-publications.html"><i class="fas fa-book"></i> Δημοσιεύσεις/Βιβλία</a>
-      <a href="agpelop-archive.html"><i class="fas fa-archive"></i> Αρχείο</a>
+      <a href="agpelop-archive.html" class="active" aria-current="page"><i class="fas fa-archive"></i> Αρχείο</a>
       <a href="agpelop-contact.html"><i class="fas fa-envelope"></i> Επικοινωνία</a>
     </nav>
     <main>
@@ -43,95 +58,73 @@
         <h2>Αρχείο Γεφυριών</h2>
         <p>
           Εδώ θα βρείτε το πλήρες αρχείο των πέτρινων γεφυριών της Πελοποννήσου, με αναλυτική καταγραφή ανά
-          Νομό και Ποτάμι.
+          Νομό και Ποτάμι. Πληκτρολογήστε ή επιλέξτε φίλτρα και η λίστα ενημερώνεται αμέσως· δεν χρειάζονται
+          τόνοι. Επιλέξτε ένα γεφύρι για να δείτε τις λεπτομέρειές του.
         </p>
 
-        <div class="bridge-selector">
-          <label for="bridge-search">Αναζήτηση Γεφυριού:</label>
-          <input type="text" id="bridge-search" placeholder="Αναζητήστε με όνομα..." />
-        </div>
-
-        <div class="instructions-row">
-          <div class="info-box">
-            <p><i class="fas fa-info-circle"></i> <strong>Οδηγίες αναζήτησης:</strong></p>
-            <ul>
-              <li>Πληκτρολογήστε τουλάχιστον 2 χαρακτήρες για να ξεκινήσει η αναζήτηση</li>
-              <li>Η αναζήτηση γίνεται στο όνομα και την περιγραφή του γεφυριού</li>
-              <li>Τα αποτελέσματα εμφανίζονται στο πεδίο "Επιλέξτε Γεφύρι"</li>
-              <li>Αν βρεθεί μόνο ένα γεφύρι, θα εμφανιστούν αυτόματα οι λεπτομέρειές του</li>
-            </ul>
+        <div class="bridge-finder">
+          <div class="finder-search">
+            <i class="fas fa-search"></i>
+            <input
+              type="search"
+              id="bridge-search"
+              placeholder="Αναζήτηση: όνομα, ποτάμι, χωριό, δήμος..."
+              aria-label="Αναζήτηση γεφυριού"
+            />
           </div>
-          <div class="info-box">
-            <p><i class="fas fa-info-circle"></i> <strong>Εναλλακτικά:</strong></p>
-            <ul>
-              <li>Μπορείτε να αναζητήσετε γεφύρια επιλέγοντας διαδοχικά:</li>
-            </ul>
-            <ol class="alt-steps">
-              <li>Νομό</li>
-              <li>Ποτάμι (ή "Όλα τα ποτάμια")</li>
-              <li>Συγκεκριμένο γεφύρι</li>
-            </ol>
+
+          <div class="finder-filters">
+            <label>
+              Νομός
+              <select id="county-select">
+                <option value="">Όλοι</option>
+                <option value="Αργολίδας">Αργολίδας</option>
+                <option value="Αρκαδίας">Αρκαδίας</option>
+                <option value="Αχαΐας">Αχαΐας</option>
+                <option value="Ηλείας">Ηλείας</option>
+                <option value="Κορινθίας">Κορινθίας</option>
+                <option value="Λακωνίας">Λακωνίας</option>
+                <option value="Μεσσηνίας">Μεσσηνίας</option>
+              </select>
+            </label>
+            <label>
+              Ποτάμι
+              <select id="river-select">
+                <option value="">Όλα</option>
+              </select>
+            </label>
           </div>
-        </div>
 
-        <div class="bridge-selector">
-          <label for="county-select">Επιλέξτε Νομό:</label>
-          <select id="county-select">
-            <option value="">-- Επιλέξτε --</option>
-            <option value="Αργολίδας">Αργολίδας</option>
-            <option value="Αρκαδίας">Αρκαδίας</option>
-            <option value="Αχαΐας">Αχαΐας</option>
-            <option value="Ηλείας">Ηλείας</option>
-            <option value="Κορινθίας">Κορινθίας</option>
-            <option value="Λακωνίας">Λακωνίας</option>
-            <option value="Μεσσηνίας">Μεσσηνίας</option>
-          </select>
-        </div>
+          <div class="finder-status">
+            <span class="finder-status-label">Κατάσταση</span>
+            <div id="status-filter" class="status-chips" role="group" aria-label="Φίλτρο κατάστασης"></div>
+          </div>
 
-        <div class="bridge-selector">
-          <label for="river-select">Επιλέξτε Ποτάμι:</label>
-          <select id="river-select" disabled>
-            <option value="">-- Επιλέξτε --</option>
-            <option value="all">Όλα τα ποτάμια</option>
-          </select>
-        </div>
-
-        <div class="bridge-selector">
-          <label for="bridge-select">Επιλέξτε Γεφύρι:</label>
-          <select id="bridge-select" disabled>
-            <option value="">-- Επιλέξτε --</option>
-          </select>
+          <div class="finder-results-header">
+            <span id="results-count" aria-live="polite"></span>
+            <button type="button" id="clear-filters" class="clear-filters hidden">
+              <i class="fas fa-times"></i> Καθαρισμός φίλτρων
+            </button>
+          </div>
+          <ul id="bridge-list" class="bridge-list">
+            <li class="bridge-list-empty">Φόρτωση αρχείου...</li>
+          </ul>
         </div>
 
         <div id="bridge-details" class="bridge-details hidden">
           <!-- Bridge details will be populated by JavaScript -->
         </div>
 
-        <div class="info-box color-legend">
-          <p><i class="fas fa-palette"></i> <strong>Χρωματικές διακρίσεις κατάστασης:</strong></p>
-          <ul>
-            <li><span style="color: green; font-weight: bold">Πράσινο:</span> Καλή κατάσταση</li>
-            <li>
-              <span style="color: orange; font-weight: bold">Πορτοκαλί:</span> Χρειάζεται επισκευή, συντήρηση,
-              ακαλαίσθητες παρεμβάσεις, επένδυση με τσιμέντο, πέτρα
-            </li>
-            <li><span style="color: red; font-weight: bold">Κόκκινο:</span> Σε μεγάλο κίνδυνο</li>
-            <li><span style="color: purple; font-weight: bold">Μωβ:</span> Γκρεμισμένα με ίχνη</li>
-            <li>
-              <span style="color: black; font-weight: bold">Μαύρο:</span> Χωμένα, εξαφανισμένα, γκρεμισμένα
-              χωρίς το παραμικρό ίχνος
-            </li>
-            <li>
-              <span style="color: gray; font-weight: bold">Γκρίζο:</span> Σκεπασμένα από άσφαλτο, τσιμέντο,
-              χώμα, νερό
-            </li>
-          </ul>
+        <div class="archive-stats">
+          <div class="archive-count">
+            <span id="total-bridges" class="archive-count-number">…</span>
+            <span class="archive-count-label">γεφύρια στο αρχείο</span>
+          </div>
+          <p class="archive-note">
+            <i class="fas fa-tools"></i> Η σελίδα είναι υπό κατασκευή και το αρχείο γεφυριών ανανεώνεται
+            συνεχώς.
+          </p>
         </div>
-
-        <p class="custom-h3">
-          <i class="fas fa-tools"></i> Η σελίδα είναι υπό κατασκευή και το αρχείο γεφυριών ανανεώνεται
-          συνεχώς. <strong>Συνολικός αριθμός γεφυριών στο αρχείο:</strong> <span id="total-bridges"></span>
-        </p>
       </section>
     </main>
     <footer>
@@ -147,13 +140,6 @@
     <script>
       document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
-    <script src="archive-data/arkadias.js"></script>
-    <script src="archive-data/achaias.js"></script>
-    <script src="archive-data/lakonias.js"></script>
-    <script src="archive-data/ileias.js"></script>
-    <script src="archive-data/messinias.js"></script>
-    <script src="archive-data/korintias.js"></script>
-    <script src="archive-data/argolidas.js"></script>
     <script src="agpelop-archive.js"></script>
   </body>
 </html>
