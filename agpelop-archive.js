@@ -107,7 +107,6 @@ const STATUS_COLORS = {
   "Επένδυση με τσιμέντο": "orange",
   "Άσχημη, ετοιμόρροπο": "red",
   "Καλυμμένο με τσιμέντο": "orange",
-  "Εξαφανισμένο": "black",
   "Ίχνη στηθαίων": "purple",
   "Δεν υπάρχουν ίχνη": "black",
   "Ίχνη": "purple",
@@ -235,6 +234,7 @@ const STATUS_FILTERS = [
 const searchInput = document.getElementById("bridge-search");
 const countySelect = document.getElementById("county-select");
 const riverSelect = document.getElementById("river-select");
+const builderSelect = document.getElementById("builder-select");
 const statusFilter = document.getElementById("status-filter");
 const bridgeList = document.getElementById("bridge-list");
 const resultsCount = document.getElementById("results-count");
@@ -257,31 +257,163 @@ function filterBridges(ignoreStatus) {
   return Object.entries(bridgeData).filter(
     ([key, bridge]) =>
       (!countySelect.value || bridge.county === countySelect.value) &&
-      (!riverSelect.value || bridge.river === riverSelect.value) &&
+      matchesRiver(bridge) &&
+      matchesBuilder(bridge) &&
       (ignoreStatus || !selectedStatus || getStatusColor(bridge.status) === selectedStatus) &&
       matchesSearch(bridge, words),
   );
 }
 
+// River dropdown groups. Named rivers and named streams are listed one by one;
+// unnamed streams and bridges without a river are each a single choice.
+const RIVER_GROUPS = [
+  { key: "river", label: "Ποτάμια" },
+  { key: "stream", label: "Ρέματα, χείμαρροι, λαγκάδια" },
+  { key: "unnamed", label: "Ρέματα χωρίς όνομα" },
+  { key: "none", label: "Χωρίς ποτάμι ή ρέμα" },
+];
+
+// Exact wordings that mean there is no river (anything else is matched by the patterns below)
+const NO_RIVER = [
+  "-",
+  "Θάλασσα",
+  "Χωρίς κοίτη",
+  "Το ρέμα έχει χωθεί",
+  "Δεν υπάρχει το ρέμα που γεφύρωνε",
+  "Ανατολική τάφρος του κάστρου της Γλαρέντζας",
+  "Κύριο κανάλι του Μουστού",
+];
+
+// Patterns on the accent-free, lowercase wording
+const NO_RIVER_PATTERN = /^-?$|^δεν υπαρχ|χωθει|χωρισ κοιτη/;
+const UNNAMED_PATTERN =
+  /^(σε|στα|στο|το|μικρο|επι)\s|^(ρεμα|χειμαρροσ|ποταμι),?\s+(που|στο παλιο)\s|^ρεμα,/;
+const STREAM_PATTERN = /^(ρεμα|ρεματια|χειμαρροσ|ποταμακι)\s|ρεμα|λαγκα|φαραγγ/;
+
+function riverGroup(river) {
+  const text = normalizeText(river).trim();
+  if (NO_RIVER.includes(river.trim()) || NO_RIVER_PATTERN.test(text)) return "none";
+  if (UNNAMED_PATTERN.test(text)) return "unnamed";
+  // "Χ και Υ" names two waterways: judge by the first one
+  const first = text.split(" και ")[0];
+  // "Χ ποτάμι ή ρέμα Υ" counts as a river, "Ρέμα Χ ή ποτάμι Υ" as a stream
+  if (/ποταμι|ποταμοσ/.test(first) && !/^(ρεμα|χειμαρροσ)\s/.test(first)) return "river";
+  if (STREAM_PATTERN.test(first)) return "stream";
+  return "river";
+}
+
+function matchesRiver(bridge) {
+  const value = riverSelect.value;
+  if (!value) return true;
+  if (value.startsWith("group:")) return riverGroup(bridge.river) === value.slice(6);
+  return bridge.river === value;
+}
+
+// Add the number of bridges to each county name, e.g. "Ηλείας (23)"
+function updateCountyOptions() {
+  const counts = {};
+  Object.values(bridgeData).forEach((bridge) => (counts[bridge.county] = (counts[bridge.county] || 0) + 1));
+  [...countySelect.options].forEach((option) => {
+    if (option.value) option.textContent = `${option.value} (${counts[option.value] || 0})`;
+  });
+}
+
+// Builder dropdown. Wordings that mention the same craftsmen are merged into one choice
+// (matched on the accent-free, lowercase wording); any other builder is listed as written.
+const BUILDER_CHOICES = [
+  { group: "Μαστόροι κατά καταγωγή", label: "Λαγκαδινοί", pattern: /λαγκαδιν/ },
+  { group: "Μαστόροι κατά καταγωγή", label: "Ηπειρώτες", pattern: /ηπειρωτ/ },
+  { group: "Μαστόροι κατά καταγωγή", label: "Αγιοβαρβαρίτες", pattern: /αγιοβαρβαριτ/ },
+  { group: "Μαστόροι κατά καταγωγή", label: "Κλουκινοχωρίτες", pattern: /κλουκινοχωριτ/ },
+  { group: "Μαστόροι κατά καταγωγή", label: "Σοποτιανοί", pattern: /σοποτιαν/ },
+  { group: "Μαστόροι κατά καταγωγή", label: "Ιταλοί", pattern: /ιταλ/ },
+  { group: "Πρωτομάστορες", label: "Αδελφοί Πουρνάρα", pattern: /πουρναρ/ },
+  { group: "Πρωτομάστορες", label: "Γιαννακός Γαρδίκας", pattern: /γαρδικα/ },
+  { group: "Πρωτομάστορες", label: "Ανδρικόπουλος", pattern: /ανδρικοπουλ/ },
+  { group: "Πρωτομάστορες", label: "Μανούσος", pattern: /μανουσ/ },
+  { group: "Πρωτομάστορες", label: "Ιωάννης Γεωργίου", pattern: /^ι\. γεωργιου$/ },
+  { group: "Άλλο", label: "Υπουργείο συγκοινωνίας", pattern: /υπουργει/ },
+  { group: "Άλλο", label: "Φυσική κατασκευή", pattern: /^η φυση$/ },
+  // Unnamed local or Turkish masons count as unknown
+  { group: "Άλλο", label: "Άγνωστος", pattern: /^αγνωστ|^ντοπιοι μαστοροι$|^τουρκοσ μαστορασ$/ },
+];
+const BUILDER_GROUPS = ["Μαστόροι κατά καταγωγή", "Πρωτομάστορες", "Άλλο"];
+
+function builderChoices(builder) {
+  const text = normalizeText(builder).trim();
+  const matches = BUILDER_CHOICES.filter((choice) => choice.pattern.test(text)).map(
+    (choice) => `choice:${choice.label}`,
+  );
+  return matches.length ? matches : [builder.trim()];
+}
+
+function matchesBuilder(bridge) {
+  return !builderSelect.value || builderChoices(bridge.builder).includes(builderSelect.value);
+}
+
+// Builders of the chosen county (or of all counties), keeping the current choice if still valid
+function updateBuilderOptions() {
+  const current = builderSelect.value;
+  const counts = {};
+  Object.values(bridgeData)
+    .filter((bridge) => !countySelect.value || bridge.county === countySelect.value)
+    .forEach((bridge) => {
+      if (!bridge.builder.trim()) return;
+      builderChoices(bridge.builder).forEach((value) => (counts[value] = (counts[value] || 0) + 1));
+    });
+
+  const byGroup = {};
+  Object.keys(counts).forEach((value) => {
+    const choice = BUILDER_CHOICES.find((c) => value === `choice:${c.label}`);
+    const group = choice ? choice.group : "Πρωτομάστορες";
+    const label = choice ? choice.label : value;
+    (byGroup[group] ||= []).push({ value, label });
+  });
+
+  builderSelect.innerHTML = '<option value="">Όλοι</option>';
+  BUILDER_GROUPS.forEach((group) => {
+    if (!byGroup[group]) return;
+    const optgroup = document.createElement("optgroup");
+    optgroup.label = group;
+    byGroup[group]
+      .sort((a, b) => a.label.localeCompare(b.label, "el"))
+      .forEach(({ value, label }) => optgroup.appendChild(new Option(`${label} (${counts[value]})`, value)));
+    builderSelect.appendChild(optgroup);
+  });
+  builderSelect.value = counts[current] ? current : "";
+}
+
 // Rivers of the chosen county (or of all counties), keeping the current choice if still valid
 function updateRiverOptions() {
   const current = riverSelect.value;
-  const rivers = [
-    ...new Set(
-      Object.values(bridgeData)
-        .filter((bridge) => !countySelect.value || bridge.county === countySelect.value)
-        .map((bridge) => bridge.river),
-    ),
-  ].sort((a, b) => a.localeCompare(b, "el"));
+  const bridges = Object.values(bridgeData).filter(
+    (bridge) => !countySelect.value || bridge.county === countySelect.value,
+  );
+  const values = [];
 
   riverSelect.innerHTML = '<option value="">Όλα</option>';
-  rivers.forEach((river) => {
-    const option = document.createElement("option");
-    option.value = river;
-    option.textContent = river;
-    riverSelect.appendChild(option);
+  RIVER_GROUPS.forEach(({ key, label }) => {
+    const inGroup = bridges.filter((bridge) => riverGroup(bridge.river) === key);
+    if (!inGroup.length) return;
+
+    const optgroup = document.createElement("optgroup");
+    optgroup.label = label;
+    if (key === "river" || key === "stream") {
+      const counts = {};
+      inGroup.forEach((bridge) => (counts[bridge.river] = (counts[bridge.river] || 0) + 1));
+      Object.keys(counts)
+        .sort((a, b) => a.localeCompare(b, "el"))
+        .forEach((river) => {
+          optgroup.appendChild(new Option(`${river} (${counts[river]})`, river));
+          values.push(river);
+        });
+    } else {
+      optgroup.appendChild(new Option(`${label} (${inGroup.length})`, `group:${key}`));
+      values.push(`group:${key}`);
+    }
+    riverSelect.appendChild(optgroup);
   });
-  riverSelect.value = rivers.includes(current) ? current : "";
+  riverSelect.value = values.includes(current) ? current : "";
 }
 
 function renderStatusChips() {
@@ -315,7 +447,7 @@ function renderList() {
         ? "1 γεφύρι"
         : `${results.length} γεφύρια`;
 
-  const filtered = searchInput.value.trim() || countySelect.value || riverSelect.value || selectedStatus;
+  const filtered = searchInput.value.trim() || countySelect.value || riverSelect.value || builderSelect.value || selectedStatus;
   clearButton.classList.toggle("hidden", !filtered);
 
   // Close the open bridge if the new filters no longer include it
@@ -368,8 +500,10 @@ function selectBridge(key, scroll) {
 
 searchInput.addEventListener("input", refresh);
 riverSelect.addEventListener("change", refresh);
+builderSelect.addEventListener("change", refresh);
 countySelect.addEventListener("change", function () {
   updateRiverOptions();
+  updateBuilderOptions();
   refresh();
 });
 
@@ -388,8 +522,11 @@ bridgeList.addEventListener("click", function (e) {
 clearButton.addEventListener("click", function () {
   searchInput.value = "";
   countySelect.value = "";
+  riverSelect.value = "";
+  builderSelect.value = "";
   selectedStatus = "";
   updateRiverOptions();
+  updateBuilderOptions();
   refresh();
   searchInput.focus();
 });
@@ -402,8 +539,11 @@ function openBridgeFromHash() {
   if (!filterBridges(false).some(([k]) => k === key)) {
     searchInput.value = "";
     countySelect.value = "";
+    riverSelect.value = "";
+    builderSelect.value = "";
     selectedStatus = "";
     updateRiverOptions();
+    updateBuilderOptions();
     refresh();
   }
   selectBridge(key, true);
@@ -417,14 +557,18 @@ document.addEventListener("DOMContentLoaded", function () {
   searchInput.disabled = true;
   countySelect.disabled = true;
   riverSelect.disabled = true;
+  builderSelect.disabled = true;
 
   loadBridgeData()
     .then(() => {
       searchInput.disabled = false;
       countySelect.disabled = false;
       riverSelect.disabled = false;
+      builderSelect.disabled = false;
       document.getElementById("total-bridges").textContent = Object.keys(bridgeData).length;
+      updateCountyOptions();
       updateRiverOptions();
+      updateBuilderOptions();
       refresh();
       openBridgeFromHash();
       window.addEventListener("hashchange", openBridgeFromHash);
