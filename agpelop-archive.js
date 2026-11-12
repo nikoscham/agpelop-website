@@ -535,6 +535,7 @@ clearButton.addEventListener("click", function () {
 // Removed duplicate bridges and the bridge that replaces them, so old links keep working
 const MERGED_BRIDGES = {
   "gefyri-145": "gefyri-119",
+  "gefyri-112": "gefyri-143",
 };
 
 function openBridgeFromHash() {
