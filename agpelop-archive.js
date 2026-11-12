@@ -532,8 +532,14 @@ clearButton.addEventListener("click", function () {
 });
 
 // Open the bridge named in the address (e.g. agpelop-archive.html#gefyri-170)
+// Removed duplicate bridges and the bridge that replaces them, so old links keep working
+const MERGED_BRIDGES = {
+  "gefyri-145": "gefyri-119",
+};
+
 function openBridgeFromHash() {
-  const key = decodeURIComponent(location.hash.slice(1));
+  const hashKey = decodeURIComponent(location.hash.slice(1));
+  const key = MERGED_BRIDGES[hashKey] || hashKey;
   if (!bridgeData[key]) return;
   // Clear filters that would hide the bridge from the list
   if (!filterBridges(false).some(([k]) => k === key)) {
